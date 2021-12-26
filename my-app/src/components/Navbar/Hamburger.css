@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500&display=swap');
+
+.servicesHam {
+    margin-left: -10%;
+    padding: 0;
+    position: absolute;
+    background-color: rgb(146, 162, 255 ,0.3 );
+    border-radius: 10px;
+    height: 15%;
+    width: 25%;
+    
+}
+.liHam {
+    margin-top: 10px;
+ margin-left: 0px;
+ text-align: center;
+    font-family: Kanit;
+    font-weight: 400;
+    color: #212529;
+    list-style-type: none;
+    text-decoration: none;
+}
