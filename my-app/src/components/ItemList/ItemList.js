@@ -17,7 +17,7 @@ return (
          items.map(
           (elem) => ( 
           <Item key={elem.id} name={elem.name} 
-           type={elem.type} image={elem.image}/>
+           type={elem.type} image={elem.image} id={elem.id}/>
           )
          )
                ): 
@@ -25,6 +25,7 @@ return (
                <h1>Cargando...</h1>
                )
          } 
+     <Item items={items}/>
     </div>
   );
 }

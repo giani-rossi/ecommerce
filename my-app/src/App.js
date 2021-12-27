@@ -1,21 +1,28 @@
-
-import './App.css';
-import NavBar from './components/Navbar/Navbar';
-import CartWidget from './components/Navbar/CartWidget';
-import ItemListContainer from './components/ItemList/ItemListContainer';
-import ItemList from './components/ItemList/ItemList';
-import Item from './components/ItemList/Item';
-
+import "./App.css";
+import NavBar from "./components/Navbar/Navbar";
+import CartWidget from "./components/Navbar/CartWidget";
+import ItemListContainer from "./components/ItemList/ItemListContainer";
+import { ItemDetailContainer } from "./components/ItemDetail/ItemDetailContainer";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 function App() {
   return (
-<>
-<NavBar/>
-<CartWidget/>
-<ItemListContainer/>
-
-</>
-);
+    <>
+      <NavBar />
+      <CartWidget />
+      <Router>
+        <Routes>
+          <Route exact path="/home" element={<ItemListContainer />}></Route>
+          <Route
+            exact
+            path="/home/:id"
+            element={<ItemDetailContainer />}
+          ></Route>
+          
+        </Routes>
+      </Router>
+    </>
+  );
 }
 
 export default App;

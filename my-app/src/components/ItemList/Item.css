@@ -1,0 +1,19 @@
+.card_indiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  
+  }
+  
+  .card_info {
+    text-align: center;
+  }
+  
+  .itemCount {
+    margin-bottom: 20px;
+  }
+
+  .image_items {
+      width: 100px;
+  }
