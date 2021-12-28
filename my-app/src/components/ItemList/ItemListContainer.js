@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ItemDetailContainer } from "../ItemDetail/ItemDetailContainer";
 import ItemList from "./ItemList";
 
 export default function ItemListContainer() {
@@ -20,6 +21,10 @@ export default function ItemListContainer() {
   //console.log(typeof data);
 
   return (
-    <>{data.length > 0 ? <ItemList items={data} /> : <h1>Cargando....</h1>}</>
+    <>
+      {data.length > 0 ? <ItemList items={data} /> : <h1>Cargando....</h1>}
+
+      {<ItemDetailContainer items={data} />}
+    </>
   );
 }

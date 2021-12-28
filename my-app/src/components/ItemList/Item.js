@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+import { ItemCount } from "../ItemCount";
 import { ItemDetailContainer } from "../ItemDetail/ItemDetailContainer";
 import style from "./Item.css";
 
@@ -7,29 +8,23 @@ export default function Item(props) {
   console.log(props.id);
 
   return (
-    <Fragment>
-      <div className="card_indiv">
+    <div ClassName="card_indiv">
+      <img src={props.image} alt="imag" ClassName="card-img-top" />
+      <div ClassName="card-body" style={{ marginLeft: 10 }}>
         <Link to={`/home/${props.id}`}>
-          <h2>{props.name}</h2>
+          <h5 ClassName="card_info">{props.name}</h5>
         </Link>
-        <p>{props.type}</p>
-        <img src={props.image} alt="imag" className="image_items"></img>
-        <button
-          type="button"
-          class="btn m-2 btn-success"
-          style={{ width: "100px" }}
+        <p ClassName="card_info">{props.type}</p>
+        <div
+          ClassName="btn btn-success"
+          style={{ display: "flex", marginLeft: 10 }}
         >
-          Buy
-        </button>
-        <button
-          type="button"
-          class="btn m-2 btn-success"
-          style={{ width: "100px" }}
-        >
-          Make an offer
-        </button>
-        <ItemDetailContainer datas={props} />
+          <p>Buy</p>
+          <p>View More</p>
+        </div>
+        <ItemCount />
+        
       </div>
-    </Fragment>
+    </div>
   );
 }

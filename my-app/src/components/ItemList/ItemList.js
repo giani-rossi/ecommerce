@@ -1,4 +1,5 @@
 import React from "react";
+import { ItemDetailContainer } from "../ItemDetail/ItemDetailContainer";
 import Item from "./Item";
 
 
@@ -26,6 +27,7 @@ return (
                )
          } 
      <Item items={items}/>
+     <ItemDetailContainer items={items} />
     </div>
   );
 }
