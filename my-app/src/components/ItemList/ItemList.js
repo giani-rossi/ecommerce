@@ -26,7 +26,7 @@ return (
                <h1>Cargando...</h1>
                )
          } 
-     <Item items={items}/>
+     
      <ItemDetailContainer items={items} />
     </div>
   );
