@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import Item from "../ItemList/Item";
-import Loading from "../Loading";
+import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 
 export const ItemDetailContainer = () => {
@@ -9,26 +7,24 @@ export const ItemDetailContainer = () => {
   const { id } = useParams();
   console.log(id);
 
-  const fetchData = async () => {
+  const fetchData = async (id) => {
     await fetch(`https://rickandmortyapi.com/api/character/?page=19/${id}`)
       .then((response) => response.json())
       .then((responseData) => setData(responseData.results))
-
       .catch((error) => alert(error));
   };
 
-  // console.log(data);
+  console.log(data);
+
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [id]);
 
-
-
+  //console.log(data[0].id);
 
   return (
     <>
       <div>
-       
         <ItemDetail items={data} />
       </div>
     </>
