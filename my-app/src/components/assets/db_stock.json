@@ -1,0 +1,14 @@
+[
+    { "id": 1, "stock": 10 , "price":0.7},
+    { "id": 2, "stock": 181 , "price":0.3},
+    { "id": 3, "stock": 10, "price":0.1},
+    { "id": 4, "stock": 10, "price":0.02},
+    { "id": 5, "stock": 12, "price":0.1},
+    { "id": 6, "stock": 13, "price":0.2},
+    { "id": 7, "stock": 10, "price":0.6},
+    { "id": 8, "stock": 11, "price":0.72},
+    
+    { "id": 9, "stock": 144, "price":0.82},
+    { "id": 10, "stock": 30, "price":0.332},
+    { "id": 11, "stock": 13, "price":0.1}
+]

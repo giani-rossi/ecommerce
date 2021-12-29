@@ -1,35 +1,51 @@
 import React from "react";
-import { useParams } from "react-router";
+import { Fragment, useState, useEffect } from "react";
+import { ItemCount } from "../ItemCount";
 
-const ItemDetail = (props) => {
-  const { id } = useParams();
-  console.log(id);
+const ItemDetail = ({ items, stock }) => {
+  console.log(stock);
 
+  const [qtyAdded, setQtyAdded] = useState(false);
 
+  const purchaseHandler = (evn) => {
+    console.log(evn);
+    setQtyAdded(evn.detail.qty);
+  };
 
-  /*const result = props.items.filter(item => {
-  if (item.id === id) {
-      return true
-  } else {
-      return false
-  }
+  useEffect(() => {
+    window.addEventListener("submitPurchase", purchaseHandler);
 
-  })
-*/
-  
-  //console.log(props.items.name);
-  //.filter((item) => item.id === id)
+    return () => {
+      window.removeEventListener("submitPurchase", purchaseHandler);
+    };
+  }, []);
 
   return (
-    <div>
-      {props.items
-        .map((elem) => (
-            <h1 key={elem.id}>
-            {elem.species} - {elem.name} - {elem.gender}{" "}
-          </h1>
-        ))
-        }
-    </div>
+    <Fragment>
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-12" key={items.id}>
+            <img src={items.image} alt="imag" />
+          </div>
+          <div className="col-sm-2">
+            Name: <br /> {items.name}
+          </div>
+
+          <div className="col-sm-2">
+            Status:
+            <br /> {items.status}
+          </div>
+          <div className="col-sm-2">
+            Specie:
+            <br /> {items.species}
+          </div>
+
+          <div className="col-sm-2">Price: {stock.price}</div>
+          <div className="col-sm-4">Qty </div>
+        </div>
+      </div>
+      {!qtyAdded && <ItemCount stock={stock} />}
+    </Fragment>
   );
 };
 

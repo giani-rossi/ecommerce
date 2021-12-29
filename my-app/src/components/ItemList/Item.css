@@ -1,4 +1,5 @@
-.card_indiv {
+.card-indiv {
+  padding: 10%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -16,4 +17,11 @@
 
   .image_items {
       width: 100px;
+  }
+
+  .itemList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
   }

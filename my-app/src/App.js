@@ -13,13 +13,8 @@ function App() {
       <CartWidget />
       <Router>
         <Routes>
-          <Route exact path="/home" element={<ItemListContainer />}></Route>
-          <Route
-            exact
-            path="/home/:id"
-            element={<ItemDetailContainer/>}
-          ></Route>
-          
+          <Route path="/" element={<ItemListContainer />}></Route>
+          <Route path="/detail/:id" element={<ItemDetailContainer />}></Route>
         </Routes>
       </Router>
     </>

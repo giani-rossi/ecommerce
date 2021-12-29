@@ -2,30 +2,44 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 
+
 export const ItemDetailContainer = () => {
   const [data, setData] = useState([]);
+
   const { id } = useParams();
-  console.log(id);
+  //console.log(id);
 
   const fetchData = async (id) => {
-    await fetch(`https://rickandmortyapi.com/api/character/?page=19/${id}`)
+    await fetch(`https://rickandmortyapi.com/api/character/${id}`)
       .then((response) => response.json())
-      .then((responseData) => setData(responseData.results))
+      .then((responseData) => setData(responseData))
+      .catch((error) => alert(error))
+  };
+
+  
+  const [stock, setStock] = useState([]);
+
+  const fetchStock = async (id) => {
+    await fetch("../assets/db_stock.json")
+      .then((responseStock) => responseStock.json())
+      .then((responseStockData) => setStock(responseStockData))
       .catch((error) => alert(error));
   };
 
-  console.log(data);
-
   useEffect(() => {
-    fetchData();
+    fetchData(id);
+    fetchStock(id)
   }, [id]);
 
-  //console.log(data[0].id);
+console.log(stock);
 
   return (
     <>
       <div>
-        <ItemDetail items={data} />
+      
+        
+        <ItemDetail items={data} stock={stock}/>
+      
       </div>
     </>
   );
