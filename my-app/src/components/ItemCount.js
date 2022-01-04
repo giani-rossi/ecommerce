@@ -1,11 +1,31 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react/cjs/react.development";
 
-export const ItemCount = ({ stock }) => {
+export const ItemCount = ({ items }) => {
+  /*
+  const [qtyAdded, setQtyAdded] = useState(false);
+
+ 
+  const purchaseHandler = (evn) => {
+    // evn.preventDefault()
+    setQtyAdded(evn.detail);
+    console.log(evn.detail);
+  };
+
+  useEffect(() => {
+    window.addEventListener("submitPurchase", purchaseHandler);
+    return () => {
+      window.removeEventListener("submitPurchase", purchaseHandler);
+    };
+  }, []);
+*/
   const [count, setCount] = useState(0);
 
   const sum = () => {
-    count < stock.stock ? setCount(count + 1) : alert("Ups! We run out of this item!");
+    count < items.stock
+      ? setCount(count + 1)
+      : alert("Ups! We run out of this item!");
   };
 
   const minus = () => {
@@ -14,7 +34,7 @@ export const ItemCount = ({ stock }) => {
 
   const purchase = () => {
     const submitPurchase = new CustomEvent("submitPurchase", {
-      detail: { qty: count },
+      detail: { qty: count, id: items.id },
     });
     count >= 1
       ? window.dispatchEvent(submitPurchase)
@@ -22,22 +42,18 @@ export const ItemCount = ({ stock }) => {
   };
 
   return (
-    <div>
+    <>
       <button className="btn m-2 btn-success" onClick={minus}>
-        {" "}
-        -{" "}
+        -
       </button>
       {count}
       <button className="btn m-2 btn-success" onClick={sum}>
-        {" "}
-        +{" "}
+        +
       </button>
-      <Link to="/cart">
-        <button className="btn m-2 btn-success" onClick={purchase}>
-          {" "}
-          Add to cart{" "}
-        </button>
-      </Link>
-    </div>
+
+      <button className="btn m-2 btn-success" onClick={purchase}>
+        Add to cart
+      </button>
+    </>
   );
 };

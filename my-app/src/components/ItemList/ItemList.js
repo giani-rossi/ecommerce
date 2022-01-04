@@ -1,27 +1,28 @@
 import React from "react";
-import { ItemDetailContainer } from "../ItemDetail/ItemDetailContainer";
+import { ItemCount } from "../ItemCount";
 import Item from "./Item";
 
 export default function ItemList({ items }) {
   console.log(items);
-  //let array = Object.values(items)
 
   return (
     <div className="itemList">
       {items ? (
         items.map((elem) => (
-          <Item 
+          <Item
             key={elem.id}
             name={elem.name}
             type={elem.type}
             image={elem.image}
             id={elem.id}
+            stock={elem.stock}
           />
-        ))
-      ) : (
-        <h1>Cargando...</h1>
-      )}
-      <ItemDetailContainer items={items} />
+          ))
+          ) : (
+            <h1>Cargando...</h1>
+            )}
+      
+            
     </div>
   );
 }

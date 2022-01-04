@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { ItemDetailContainer } from "../ItemDetail/ItemDetailContainer";
 import ItemList from "./ItemList";
 
 export default function ItemListContainer() {
@@ -16,7 +15,11 @@ export default function ItemListContainer() {
     fetchData();
   }, []);
 
+  const stock = data.map((p) => ({ ...p, stock: 10 }));
+
+  console.log(stock);
+
   return (
-    <>{data.length > 0 ? <ItemList items={data} /> : <h1>Cargando....</h1>}</>
+    <>{data.length > 0 ? <ItemList items={stock} /> : <h1>Cargando....</h1>}</>
   );
 }

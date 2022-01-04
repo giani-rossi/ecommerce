@@ -4,10 +4,12 @@ import CartWidget from "./components/Navbar/CartWidget";
 import ItemListContainer from "./components/ItemList/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetail/ItemDetailContainer";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import ItemDetail from "./components/ItemDetail/ItemDetail";
+import { CartProvider } from "./context/CartContext";
+
 
 function App() {
   return (
+    <CartProvider>
     <>
       <NavBar />
       <CartWidget />
@@ -18,6 +20,7 @@ function App() {
         </Routes>
       </Router>
     </>
+      </CartProvider>
   );
 }
 

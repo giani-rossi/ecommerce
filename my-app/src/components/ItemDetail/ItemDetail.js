@@ -1,10 +1,17 @@
 import React from "react";
 import { Fragment, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useContext } from "react/cjs/react.development";
+import { CartContext } from "../../context/CartContext";
 import { ItemCount } from "../ItemCount";
 
-const ItemDetail = ({ items, stock }) => {
-  console.log(stock);
+const ItemDetail = ({ items }) => {
 
+  const {value} = useContext(CartContext);
+
+console.log(value);
+  //console.log(items.id);
+/*
   const [qtyAdded, setQtyAdded] = useState(false);
 
   const purchaseHandler = (evn) => {
@@ -20,6 +27,8 @@ const ItemDetail = ({ items, stock }) => {
     };
   }, []);
 
+  console.log(items);
+*/
   return (
     <Fragment>
       <div className="container">
@@ -40,11 +49,16 @@ const ItemDetail = ({ items, stock }) => {
             <br /> {items.species}
           </div>
 
-          <div className="col-sm-2">Price: {stock.price}</div>
-          <div className="col-sm-4">Qty </div>
+          <div className="col-sm-2">Price: {items.price}💎</div>
+          <div className="col-sm-4">Qty: {value} </div>
         </div>
+
+        <ItemCount items={items} />
+        <Link to={"/"}>
+          {" "}
+          <button className="btn m-2 btn-success">Home 🔙</button>
+        </Link>
       </div>
-      {!qtyAdded && <ItemCount stock={stock} />}
     </Fragment>
   );
 };
