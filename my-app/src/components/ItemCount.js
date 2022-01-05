@@ -34,7 +34,7 @@ export const ItemCount = ({ items }) => {
 
   const purchase = () => {
     const submitPurchase = new CustomEvent("submitPurchase", {
-      detail: { qty: count, id: items.id },
+      detail: { qty: count, name: items.name ,id:items.id },
     });
     count >= 1
       ? window.dispatchEvent(submitPurchase)

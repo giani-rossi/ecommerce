@@ -10,7 +10,9 @@ const ItemDetail = ({ items }) => {
   const {value} = useContext(CartContext);
 
 console.log(value);
-  //console.log(items.id);
+ 
+
+//console.log(items.id);
 /*
   const [qtyAdded, setQtyAdded] = useState(false);
 
