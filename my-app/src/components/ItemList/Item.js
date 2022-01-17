@@ -1,36 +1,25 @@
 import React, { Fragment } from "react";
+import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { ItemCount } from "../ItemCount";
-import ItemDetail from "../ItemDetail/ItemDetail";
+
 import style from "./Item.css";
 
 export default function Item(props) {
- // console.log(props.id);
-console.log(props.stock);
-
-
-
+  // console.log(props.id);
+  console.log(props.stock);
 
   return (
     <Fragment>
-      <div ClassName="card-indiv">
-        <img src={props.image} alt="imag" ClassName="card-img-top" />
-        <div ClassName="card-body" style={{ marginLeft: 10 }}>
-            <h5 ClassName="card_info">{props.name}</h5>
-          <p ClassName="card_info">{props.type}</p>
-          <div
-            ClassName="btn btn-success"
-            style={{ display: "flex", marginLeft: 10 }}
-            >
-            
+      <Card style={{ margin: 30 }}>
+        <Card.Img variant="top" src={props.image} />
+        <Card.Body>
+          <Card.Title>{props.name}</Card.Title>
+          <Card.Text>{props.type}</Card.Text>
           <Link to={`/detail/${props.id}`}>
-            <p>Buy - View More</p>
-            </Link>
-          </div>
-         
-        
-        </div>
-      </div>
+            <Button variant="primary">View More</Button>
+          </Link>
+        </Card.Body>
+      </Card>
     </Fragment>
   );
 }
