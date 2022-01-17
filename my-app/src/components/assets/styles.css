@@ -1,0 +1,13 @@
+.card_detail {
+    width: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15%;
+    position: absolute;
+}
+
+.buttons_detail {
+    display: flex;
+    align-items: center;
+    width: 100px;
+}

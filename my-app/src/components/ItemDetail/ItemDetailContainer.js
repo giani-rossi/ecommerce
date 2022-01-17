@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { ItemCount } from "../ItemCount";
 import ItemDetail from "./ItemDetail";
 
 export const ItemDetailContainer = () => {
@@ -21,12 +22,13 @@ export const ItemDetailContainer = () => {
   
   //const stock = data.map((p) => ({ ...p, stock: 10 }));
   
-  const stock = {...data,stock:10 , price: Math.random().toFixed(2)}
+  const stock = {...data, stock:10 , price: Math.random().toFixed(2)  }
   
   console.log(stock);
   return (
     <>
       <ItemDetail items={stock} />
+    
     </>
   );
 };

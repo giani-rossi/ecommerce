@@ -1,19 +1,23 @@
 import React from "react";
 import { Fragment, useState, useEffect } from "react";
+import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useContext } from "react/cjs/react.development";
 import { CartContext } from "../../context/CartContext";
 import { ItemCount } from "../ItemCount";
-
+import '../assets/styles.css'
 const ItemDetail = ({ items }) => {
+  
+  
+  const {
+    state: { cart },
+    dispatch,
+  } = useContext(CartContext);
 
-  const {value} = useContext(CartContext);
+  // console.log(items.stock);
 
-console.log(value);
- 
-
-//console.log(items.id);
-/*
+  //console.log(items.id);
+  /*
   const [qtyAdded, setQtyAdded] = useState(false);
 
   const purchaseHandler = (evn) => {
@@ -29,38 +33,37 @@ console.log(value);
     };
   }, []);
 
+  <ItemCount items={items} />
+  */
   console.log(items);
-*/
   return (
     <Fragment>
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12" key={items.id}>
-            <img src={items.image} alt="imag" />
-          </div>
-          <div className="col-sm-2">
+      <Card className='card_detail' >
+        <Card.Img variant="top" src={items.image} alt="imag" />
+        <Card.Body>
+          <Card.Title>Card Title</Card.Title>
+          <Card.Text>
             Name: <br /> {items.name}
-          </div>
+         
+         
+            Status: <br /> {items.status}
+     
+       
+            Specie: <br /> {items.species}
+         
+         
+            Price: <br /> {items.price} 💎
+          </Card.Text>
 
-          <div className="col-sm-2">
-            Status:
-            <br /> {items.status}
-          </div>
-          <div className="col-sm-2">
-            Specie:
-            <br /> {items.species}
-          </div>
+          <ItemCount className='buttons_detail' items={items} />
 
-          <div className="col-sm-2">Price: {items.price}💎</div>
-          <div className="col-sm-4">Qty: {value} </div>
-        </div>
-
-        <ItemCount items={items} />
-        <Link to={"/"}>
-          {" "}
-          <button className="btn m-2 btn-success">Home 🔙</button>
-        </Link>
-      </div>
+          <Link to={"/"}>
+            <button className="btn m-2 btn-success">
+              Add more products 🔙
+            </button>
+          </Link>
+        </Card.Body>
+      </Card>
     </Fragment>
   );
 };

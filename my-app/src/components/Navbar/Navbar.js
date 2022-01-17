@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import CartWidget from "./CartWidget";
 import icon from "../assets/icon.svg";
 import icon2 from "../assets/icon2.svg";
@@ -7,7 +7,9 @@ import Hamburger from "hamburger-react";
 import HamburgerOpen from "./HamburgerOpen";
 import WalletMessage from "./WalletMessage";
 import DigitalClock from "./DigitalClock";
-
+import { FormControl } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
 const NavBar = (props) => {
   const [hamburger, setHamburgerOpen] = useState(false);
@@ -24,10 +26,19 @@ const NavBar = (props) => {
     setLogWallet(!logWallet);
   };
 
+//const {state: {cart} , dispatch} = useContext(CartContext)
+
+
+
   return (
     <Fragment>
       <div className="navBar navbar-dark bg-dark">
         <img className="icon" src={icon} alt="icon"></img>
+        <FormControl
+          className="m-auto"
+          style={{ width: 300, padding: 0 }}
+          placeholder="Search"
+        />
 
         <ul className="servicesNav">
           <a href="#home">
@@ -45,7 +56,10 @@ const NavBar = (props) => {
         </ul>
 
         <div className="iconsNav">
-          <CartWidget className="iconCart" />
+         
+     
+            <CartWidget className="iconCart" />{" "}
+          
           <img
             className="icons iconWallet"
             src={icon2}
@@ -59,8 +73,8 @@ const NavBar = (props) => {
           <Hamburger size={18} />
           {hamburger === true ? <HamburgerOpen /> : null}
         </div>
-       
-        <DigitalClock/>
+
+        <DigitalClock />
       </div>
     </Fragment>
   );
