@@ -11,6 +11,9 @@ export const CartReducer = (state, action) => {
       let newItem = state.products.find((prod) => prod.id === action.payload);
       // console.log(newItem);
       let itemInCart = state.cart.find((prod) => prod.id === newItem.id);
+
+      
+
       return itemInCart
         ? {
             ...state,

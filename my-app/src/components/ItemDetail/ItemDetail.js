@@ -5,10 +5,8 @@ import { Link } from "react-router-dom";
 import { useContext } from "react/cjs/react.development";
 import { CartContext } from "../../context/CartContext";
 import { ItemCount } from "../ItemCount";
-import '../assets/styles.css'
+import "../assets/styles.css";
 const ItemDetail = ({ items }) => {
-  
-  
   const {
     state: { cart },
     dispatch,
@@ -38,24 +36,22 @@ const ItemDetail = ({ items }) => {
   console.log(items);
   return (
     <Fragment>
-      <Card className='card_detail' >
+      <Card className="card_detail">
         <Card.Img variant="top" src={items.image} alt="imag" />
         <Card.Body>
           <Card.Title>Card Title</Card.Title>
           <Card.Text>
-            Name: <br /> {items.name}
-         
-         
-            Status: <br /> {items.status}
-     
-       
-            Specie: <br /> {items.species}
-         
-         
-            Price: <br /> {items.price} 💎
+            Name: {items.name} <br />
+            Status: {items.status}
+            <br />
+            Specie: {items.species}
+            <br />
+            Price: {items.price} 💎
+            <br />
+           
           </Card.Text>
 
-          <ItemCount className='buttons_detail' items={items} />
+          <ItemCount className="buttons_detail" items={items} />
 
           <Link to={"/"}>
             <button className="btn m-2 btn-success">

@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Alert, Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import { CartContext } from "../context/CartContext";
-import ProductItem from "./ProductItem";
 
 export const ItemCount = ({ items }) => {
   console.log(items);
@@ -63,6 +62,27 @@ export const ItemCount = ({ items }) => {
       
       */
 
+  const [count, setCount] = useState(0);
+
+  function suma() {
+    setCount(count + 1);
+    dispatch({
+      type: "ADD_ITEM",
+      payload: items.id,
+    });
+  }
+
+  function resta() {
+    if (count > 0) {
+      setCount(count - 1);
+      dispatch({
+        type: "DELETE_ITEM",
+        payload: items.id,
+      });
+    }
+  }
+
+  console.log(count);
   return (
     <>
       <div style={{ display: "flex" }}>
@@ -70,27 +90,16 @@ export const ItemCount = ({ items }) => {
           className="buttons_detail"
           variant="success"
           className="btn m-2 btn-success"
-          onClick={() => {
-            dispatch({
-              type: "ADD_ITEM",
-              payload: items.id,
-            });
-          }}
+          onClick={suma}
         >
           +
         </Button>
 
-        
-
+        <h1>{count}</h1>
         <Button
           className="buttons_detail"
           variant="success"
-          onClick={() => {
-            dispatch({
-              type: "DELETE_ITEM",
-              payload: items.id,
-            });
-          }}
+          onClick={resta}
           className="btn m-2 btn-success"
         >
           -

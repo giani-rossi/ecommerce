@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import style from "./Item.css";
 
 export default function Item(props) {
-  // console.log(props.id);
+
   console.log(props.stock);
 
   return (

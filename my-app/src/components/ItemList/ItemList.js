@@ -1,6 +1,8 @@
 import React from "react";
 import { ItemCount } from "../ItemCount";
 import Item from "./Item";
+import Loading from '../Loading'
+
 
 export default function ItemList({ items }) {
   console.log(items);
@@ -16,10 +18,12 @@ export default function ItemList({ items }) {
             image={elem.image}
             id={elem.id}
             stock={elem.stock}
+            
           />
           ))
           ) : (
-            <h1>Cargando...</h1>
+            <Loading/>
+          
             )}
       
             
