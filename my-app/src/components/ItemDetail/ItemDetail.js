@@ -53,10 +53,10 @@ const ItemDetail = ({ items }) => {
 
           <ItemCount className="buttons_detail" items={items} />
 
-          <Link to={"/"}>
-            <button className="btn m-2 btn-success">
+          <Link className="buttons_detail" to={"/"}>
+            <Button variant='success' className="buttons_detail">
               Add more products 🔙
-            </button>
+            </Button>
           </Link>
         </Card.Body>
       </Card>

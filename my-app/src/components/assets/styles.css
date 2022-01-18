@@ -9,5 +9,6 @@
 .buttons_detail {
     display: flex;
     align-items: center;
-    width: 100px;
+    justify-content: center;
+  margin: 2px;
 }

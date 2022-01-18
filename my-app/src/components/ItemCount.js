@@ -3,6 +3,7 @@ import { Alert, Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import { CartContext } from "../context/CartContext";
+import './assets/styles.css'
 
 export const ItemCount = ({ items }) => {
   console.log(items);
@@ -69,7 +70,8 @@ export const ItemCount = ({ items }) => {
     dispatch({
       type: "ADD_ITEM",
       payload: items.id,
-    });
+    })
+    
   }
 
   function resta() {
@@ -82,17 +84,17 @@ export const ItemCount = ({ items }) => {
     }
   }
 
-  console.log(count);
+  console.log(items.stock);
   return (
     <>
-      <div style={{ display: "flex" }}>
-        <Button
+      <div className="buttons_detail" >
+        <Button disabled ={count>=items.stock}
           className="buttons_detail"
           variant="success"
           className="btn m-2 btn-success"
           onClick={suma}
         >
-          +
+         {count>=items.stock ? 'Out of Stock' : '+' } 
         </Button>
 
         <h1>{count}</h1>
@@ -100,17 +102,19 @@ export const ItemCount = ({ items }) => {
           className="buttons_detail"
           variant="success"
           onClick={resta}
-          className="btn m-2 btn-success"
+          className="btn m-2 btn-success "
         >
           -
         </Button>
 
-        <Link className="buttons_detail" to="/cart">
-          <Button className="buttons_detail" variant="success">
+      </div>
+      <div className="buttons_detail"  >
+        <Link to="/cart">
+          <Button className= "buttons_detail"  variant="success">
             Go to cart
           </Button>
         </Link>
-      </div>
+        </div>
     </>
   );
 };

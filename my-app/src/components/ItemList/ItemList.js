@@ -2,6 +2,7 @@ import React from "react";
 import { ItemCount } from "../ItemCount";
 import Item from "./Item";
 import Loading from '../Loading'
+import { Spinner } from "react-bootstrap";
 
 
 export default function ItemList({ items }) {
@@ -22,7 +23,9 @@ export default function ItemList({ items }) {
           />
           ))
           ) : (
-            <Loading/>
+            <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
           
             )}
       

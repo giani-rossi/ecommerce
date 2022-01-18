@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import Loading from "../Loading";
+import { Spinner } from "react-bootstrap";
 
 export default function ItemListContainer() {
   const [data, setData] = useState([]);
@@ -20,5 +21,7 @@ export default function ItemListContainer() {
 
   console.log(stock);
 
-  return <>{data.length > 0 ? <ItemList items={stock} /> : <Loading />}</>;
+  return <>{data.length > 0 ? <ItemList items={stock} /> : <Spinner animation="border" role="status">
+  <span className="visually-hidden">Loading...</span>
+</Spinner>}</>;
 }
