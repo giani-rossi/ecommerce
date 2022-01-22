@@ -3,6 +3,8 @@ import { InitialState } from "./CartContext";
 export const CartReducer = (state, action) => {
   // console.log(state);
   //the action can be reduce or increase
+  
+  
   switch (action.type) {
     case "ADD_ITEM": {
       //console.log(action.payload);

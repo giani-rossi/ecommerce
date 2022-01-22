@@ -44,8 +44,8 @@ const CartWidget = () => {
                       style={{ cursor: "pointer" }}
                       onClick={() =>
                         dispatch({
-                          type: "REMOVE_FROM_CART",
-                          payload: items,
+                          type: "DELETE_ALL",
+                          payload: items.id,
                         })
                       }
                     />

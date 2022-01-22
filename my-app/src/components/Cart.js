@@ -15,18 +15,6 @@ const Cart = () => {
     dispatch,
   } = useContext(CartContext);
 
-
-  /* const value = useContext(CartContext);
-   console.log(typeof(value));
-
-  const deleteAllPurchase = () => {
-    const deletePurchase = new CustomEvent("deletePurchase", {
-      detail: { qty: 0, name: prod.name, id: prod.id },
-    });
-
-    window.dispatchEvent(deletePurchase);
-  };
-*/
   console.log(cart);
   return (
     <>
@@ -42,6 +30,20 @@ const Cart = () => {
            Back to Home
           </Button>
         </Link>
+
+
+        <Button
+              className="m-2"
+              variant="primary"
+              onClick={() => {
+                dispatch({
+                  type: "CLEAR_CART",
+    
+                });
+              }}
+            >
+             Vaciar Carrito
+            </Button>
     </>
   );
 };
