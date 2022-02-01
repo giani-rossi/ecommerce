@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import Cart from "./Cart";
 
+
+
 const ProductItem = ({ data }) => {
+
+
+
   const {
     state: { cart },
     dispatch,
@@ -48,6 +53,7 @@ const ProductItem = ({ data }) => {
             >
               Eliminar uno
             </Button>
+        
           </div>
           <Badge variant="primary" pill>
             Qty: {qty}

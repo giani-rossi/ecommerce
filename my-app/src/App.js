@@ -7,12 +7,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import Cart from "./components/Cart";
 
+
 function App() {
   return (
     <CartProvider>
       <>
         <Router>
           <NavBar/>
+          
           <Routes>
             <Route path="/cart" element={<Cart />}></Route>
             <Route path="/" element={<ItemListContainer />}></Route>

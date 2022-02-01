@@ -8,6 +8,8 @@ import { TiDelete } from "react-icons/ti";
 import { Link } from "react-router-dom";
 
 const CartWidget = () => {
+ 
+  
   const {
     state: { cart },
     dispatch,

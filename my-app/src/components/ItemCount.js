@@ -94,7 +94,7 @@ export const ItemCount = ({ items }) => {
           className="btn m-2 btn-success"
           onClick={suma}
         >
-         {count>=items.stock ? 'Out of Stock' : '+' } 
+         {count>=items.stock ? 'Out of Stock' : 'Add' } 
         </Button>
 
         <h1>{count}</h1>
@@ -104,7 +104,7 @@ export const ItemCount = ({ items }) => {
           onClick={resta}
           className="btn m-2 btn-success "
         >
-          -
+          Delete
         </Button>
 
       </div>

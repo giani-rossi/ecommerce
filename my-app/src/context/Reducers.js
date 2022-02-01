@@ -1,7 +1,7 @@
 import { InitialState } from "./CartContext";
 
 export const CartReducer = (state, action) => {
-  // console.log(state);
+  //   console.log(state);
   //the action can be reduce or increase
   
   
@@ -11,10 +11,10 @@ export const CartReducer = (state, action) => {
       //COMO HACER QUE LOS ITEMS NO SE REPITAN EN EL CARRITO
       //CREAMOS LA VARIABLE NEWITEM Y SI LOS IDS QUE ESTAN EN EL CARRITO COINCIDEN CON EL QE MANDO EL USUARIO
       let newItem = state.products.find((prod) => prod.id === action.payload);
-      // console.log(newItem);
+      // console.log(action.payload);
       let itemInCart = state.cart.find((prod) => prod.id === newItem.id);
 
-      
+      console.log(action.payload);
 
       return itemInCart
         ? {
@@ -57,6 +57,13 @@ export const CartReducer = (state, action) => {
 
     case "CLEAR_CART":
       return InitialState;
+
+
+
+
+
+
+
 
     default:
       return state;

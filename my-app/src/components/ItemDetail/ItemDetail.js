@@ -6,7 +6,10 @@ import { useContext } from "react/cjs/react.development";
 import { CartContext } from "../../context/CartContext";
 import { ItemCount } from "../ItemCount";
 import "../assets/styles.css";
-const ItemDetail = ({ items }) => {
+const ItemDetail = ({ items , info }) => {
+  
+  console.log(info);
+  
   const {
     state: { cart },
     dispatch,
@@ -33,7 +36,8 @@ const ItemDetail = ({ items }) => {
 
   <ItemCount items={items} />
   */
-  console.log(items);
+ 
+ 
   return (
     <Fragment>
       <Card className="card_detail">
@@ -42,6 +46,8 @@ const ItemDetail = ({ items }) => {
           <Card.Title>Card Title</Card.Title>
           <Card.Text>
             Name: {items.name} <br />
+           
+      
             Status: {items.status}
             <br />
             Specie: {items.species}
@@ -50,6 +56,8 @@ const ItemDetail = ({ items }) => {
             <br />
            
           </Card.Text>
+           
+           
 
           <ItemCount className="buttons_detail" items={items} />
 

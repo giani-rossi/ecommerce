@@ -1,3 +1,10 @@
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  getFirestore,
+} from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ItemCount } from "../ItemCount";
@@ -7,7 +14,7 @@ export const ItemDetailContainer = () => {
   const [data, setData] = useState([]);
 
   const { id } = useParams();
-
+  /*
   const fetchData = async (id) => {
     await fetch(`https://rickandmortyapi.com/api/character/${id}`)
       .then((response) => response.json())
@@ -18,17 +25,33 @@ export const ItemDetailContainer = () => {
   useEffect(() => {
     fetchData(id);
   }, [id]);
+*/
 
-  
-  //const stock = data.map((p) => ({ ...p, stock: 10 }));
-  
-  const stock = {...data, stock:10 , price: Math.random().toFixed(2)  }
-  
-  console.log(stock);
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    const db = getFirestore();
+    const ref = doc(db, "items", id);
+    getDoc(ref).then((snapshot) => {
+      if (snapshot.size === 0) {
+        console.log("No results");
+      }
+
+      setProduct(snapshot.data());
+    });
+  }, [id]);
+
+  /*
+  const stock = {
+    ...data,
+    stock: 10,
+    price: Math.random().toFixed(2),
+  };
+*/
+  //console.log(stock);
   return (
     <>
-      <ItemDetail items={stock} />
-    
+      <ItemDetail items={product} info={product} />
     </>
   );
 };
