@@ -83,20 +83,20 @@ const Cart = (props) => {
         </Button>
       </Link>
 
-      <Form>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Name</Form.Label>
+      <Form style={{position:'absolute' , left:'50%' , transform:'translateX(-50%)'}}>
+        <Form.Group className="mb-3" >
+          <Form.Label>Nombre</Form.Label>
           <Form.Control id="name" type="name" placeholder="Name" />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control id="mail" type="email" placeholder="Enter email" />
+        <Form.Group className="mb-3" >
+          <Form.Label>Email</Form.Label>
+          <Form.Control id="mail" type="text" placeholder="Enter email" />
           <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
+            Relax! No vamos a compartir tus datos, es solo para registrar la compra
           </Form.Text>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Phone</Form.Label>
+        <Form.Group className="mb-3" >
+          <Form.Label>Cel</Form.Label>
           <Form.Control id="phone" type="phone" placeholder="Phone" />
         </Form.Group>
         TOTAL: $ {totalPrice}

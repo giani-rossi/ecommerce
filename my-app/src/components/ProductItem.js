@@ -25,7 +25,7 @@ const ProductItem = ({ data }) => {
           className="d-flex justify-content-between align-items-start"
         >
           <div className="ms-2 me-auto">
-            <div className="fw-bold">{name}</div>$ {price}
+            <div className="fw-bold">{name}</div> Unit price =  $ {price}
             <div className="fw">Subtotal = ${qty * price}</div>
             <br></br>
             <Button
@@ -56,7 +56,7 @@ const ProductItem = ({ data }) => {
         
           </div>
           <Badge variant="primary" pill>
-            Qty: {qty}
+            Quantity: {qty}
           </Badge>
         </ListGroup.Item>
       </ListGroup>
